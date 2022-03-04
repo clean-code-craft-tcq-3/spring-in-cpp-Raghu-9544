@@ -34,7 +34,7 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
                             maximum = data[i];
                         }
 
-                    else if (data[i] < minmum)
+                    if (data[i] < minmum)
                         {
                             minmum = data[i];
                         }

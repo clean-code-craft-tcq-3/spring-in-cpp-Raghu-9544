@@ -6,8 +6,8 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
 {
     //Implement statistics here
 
-    double minmum = data[1];
-    double maximum = 0;
+    double minmum = data[0];
+    double maximum = data[0];
     double average_temp = 0;
      int count = 0;
      double sum = 0;
@@ -17,7 +17,7 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
                 {
                 
     
-                for (i=0; i < data.size(); i++)
+                for (i=0; i < float(data.size()); i++)
                 {
                     count++;
                     sum += data[i];

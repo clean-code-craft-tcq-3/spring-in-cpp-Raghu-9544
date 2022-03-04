@@ -5,12 +5,15 @@ class Stats
 public:
     float average, max, min;
 
+    //constructor
+    //Stats(const std::vector<double>& inputdata);
 };
-//}ComputeStatIstics_Temp;
+
+    //}ComputeStatIstics_Temp;
     
 namespace Statistics 
 {
-    Stats ComputeStatistics(const std::vector<float>& data);
+    Stats ComputeStatistics(const std::vector<float>& inputData);
 }
 
 class IAlerter
@@ -56,4 +59,6 @@ class StatsAlerter : public EmailAlert, public LEDAlert
 };
 
 
+
+//alerters is vector of struct
 

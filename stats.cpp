@@ -9,12 +9,13 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
     double minmum = data[1];
     double maximum = 0;
     double average_temp = 0;
+     int count = 0;
+     double sum = 0;
+     int i;
     
     if (data.size())
                 {
-                 int count = 0;
-                 double sum = 0;
-                 int i;
+                
     
                 for (i=0; i < data.size(); i++)
                 {

@@ -1,8 +1,8 @@
 #include "stats.h"
 
 
-Stats Statistics::ComputeStatistics(const std::vector<double> data)
- {
+Stats Statistics::ComputeStatistics(const std::vector<double>& data)
+{
     //Implement statistics here
 
     double minmum = 0;
@@ -11,9 +11,9 @@ Stats Statistics::ComputeStatistics(const std::vector<double> data)
     
     if(data.size() <= 0 )
                 {
-                  average_temp = sqrt(-2);
-                  maximum = sqrt(-2);
-                  minmum = sqrt(-2);          
+                  average_temp = 0.0/0.0;
+                  maximum = 0.0/0.0;
+                  minmum = 0.0/0.0;          
 
                 }
     
@@ -41,13 +41,18 @@ Stats Statistics::ComputeStatistics(const std::vector<double> data)
                 average_temp = sum/(double)count;   
 
                 }
-     Stats Stats_Temp_Obj();
+    
+              
+        Stats Stats_Temp_Obj;
         Stats_Temp_Obj.average = average_temp;
         Stats_Temp_Obj.max = maximum;
         Stats_Temp_Obj.min = minmum;
 
         return Stats_Temp_Obj;
+        
 }
+
+
 
 
 //    class StatsAlerter 

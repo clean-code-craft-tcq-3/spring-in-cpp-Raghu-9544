@@ -3,40 +3,51 @@
 
 Stats Statistics::ComputeStatistics(const std::vector<float>& Data) 
 {
-    float i, sum = 0, average,min,max;
+    float i; 
+    float sum = 0;
+    float average_temp;
+    float minimum;
+    float maximum;
+    
     if(Data.size())
     {
         for (i = 0; i < float(Data.size()); i++)
         {
             sum += Data[i];
         }
-        average = sum / float(Data.size());
+        average_temp = sum / float(Data.size());
 
 
-        max = Data[0];
-        min = Data[0];
+        maximum = Data[0];
+        minimum = Data[0];
         for (int i = 0; i < int(Data.size()); i++)
         {
-            if (max < Data[i])
-            {
-                max = Data[i];
-            }
-            if (min > Data[i])
-            {
-                min = Data[i];
-            }
+            if (maximum < Data[i])
+                    {
+                         maximum = Data[i];
+                    }
+            
+            if (minimum > Data[i])
+                     {
+                         minimum = Data[i];
+                     }
         }
+        
     }
+    
+    
     else
     {
-        average = 0.0/0.0;
-        max = 0.0/0.0;
-        min = 0.0/0.0;
+        average_temp = 0.0/0.0;   //returns NaN
+        maximum = 0.0/0.0;       //return Nan
+        minimum = 0.0/0.0;       //returns Nan
     }
+    
+    
     Stats ComputeStatIstics1; 
-    ComputeStatIstics1.average = average;
-    ComputeStatIstics1.max = max;
-    ComputeStatIstics1.min = min;
+    ComputeStatIstics1.average = average_temp;
+    ComputeStatIstics1.max = maximum;
+    ComputeStatIstics1.min = minimum;
 
     return ComputeStatIstics1;
 }

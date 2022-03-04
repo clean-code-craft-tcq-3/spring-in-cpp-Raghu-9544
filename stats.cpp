@@ -6,18 +6,25 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
 {
     //Implement statistics here
 
-    double minmum = data[0];
-    double maximum = data[0];
+    double minmum = 0;
+    double maximum = 0;
     double average_temp = 0;
-     int count = 0;
-     double sum = 0;
-     int i;
     
-    if (data.size())
+    if(data.size() <= 0 )
                 {
-                
+                  average_temp = 0.0/0.0;
+                  maximum = 0.0/0.0;
+                  minmum = 0.0/0.0;          
+
+                }
     
-                for (i=0; i < float(data.size()); i++)
+    else 
+                {
+                 int count = 0;
+                 double sum = 0;
+                 int i;
+    
+                for (i=0; i < data.size(); i++)
                 {
                     count++;
                     sum += data[i];
@@ -27,20 +34,12 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
                             maximum = data[i];
                         }
 
-                    if (data[i] < minmum)
+                    else if (data[i] < minmum)
                         {
                             minmum = data[i];
                         }
                 }
                 average_temp = sum/(double)count;   
-
-                }
-    
-    else 
-                {
-                  average_temp = 0.0/0.0;
-                  maximum = 0.0/0.0;
-                  minmum = 0.0/0.0;          
 
                 }
     
@@ -55,7 +54,7 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
 }
 
 
-/* Stats StatsAlerter::checkAndAlert(const std::vector<double>& data)
+Stats StatsAlerter::checkAndAlert(const std::vector<double>& data)
 {
 
     int alert = 0;
@@ -83,4 +82,8 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
         return Stats_Temp_Obj1;
 
     }
-} */
+}
+
+
+
+

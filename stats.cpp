@@ -46,9 +46,9 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
 
 void StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
 {
-    //EmailAlert emailAlert;
-    //LEDAlert ledAlert;
-    //alert_flag = 0;
+    EmailAlert emailAlert;
+    LEDAlert ledAlert;
+    alert_flag = 0;
     for (int i = 0; i < int(inputData.size()); i++)
     {
         if (inputData[i] > maxThreshold)
@@ -60,9 +60,9 @@ void StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
         }
     }
 
-    /*if(alert_flag == 1)
+    if(alert_flag == 1)
     {
        alerters_input[0]->set_alert();
        alerters_input[1]->set_alert();
-    }*/
+    }
 }

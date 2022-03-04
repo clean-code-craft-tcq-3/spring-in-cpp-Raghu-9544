@@ -10,7 +10,7 @@ public:
     
 namespace Statistics 
 {
-    Stats ComputeStatistics(const std::vector<float>& inputData);
+    Stats ComputeStatistics(const std::vector<float>& Data);
 }
 
 class IAlerter

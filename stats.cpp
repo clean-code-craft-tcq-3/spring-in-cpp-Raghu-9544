@@ -1,32 +1,29 @@
 #include "stats.h"
-//using namespace Statistics;
 
-Stats Statistics::ComputeStatistics(const std::vector<float>& InputData) 
+
+Stats Statistics::ComputeStatistics(const std::vector<float>& Data) 
 {
     float i, sum = 0, average,min,max;
-    if(InputData.size())
+    if(Data.size())
     {
-        for (i = 0; i < float(InputData.size()); i++)
+        for (i = 0; i < float(Data.size()); i++)
         {
-            sum += InputData[i];
+            sum += Data[i];
         }
-        average = sum / float(InputData.size());
-        //std::cout<<average;
+        average = sum / float(Data.size());
 
-        //average = (std::accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
-        //std::cout<<average;
 
-        max = InputData[0];
-        min = InputData[0];
-        for (int i = 0; i < int(InputData.size()); i++)
+        max = Data[0];
+        min = Data[0];
+        for (int i = 0; i < int(Data.size()); i++)
         {
-            if (max < InputData[i])
+            if (max < Data[i])
             {
-                max = InputData[i];
+                max = Data[i];
             }
-            if (min > InputData[i])
+            if (min > Data[i])
             {
-                min = InputData[i];
+                min = Data[i];
             }
         }
     }
@@ -36,19 +33,17 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& InputData)
         max = 0.0/0.0;
         min = 0.0/0.0;
     }
-    Stats ComputeStatIstics_Temp; 
-    ComputeStatIstics_Temp.average = average;
-    ComputeStatIstics_Temp.max = max;
-    ComputeStatIstics_Temp.min = min;
+    Stats ComputeStatIstics1; 
+    ComputeStatIstics1.average = average;
+    ComputeStatIstics1.max = max;
+    ComputeStatIstics1.min = min;
 
-    return ComputeStatIstics_Temp;
+    return ComputeStatIstics1;
 }
 
 void StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
 {
-    //EmailAlert emailAlert;
-    //LEDAlert ledAlert;
-    //alert_flag = 0;
+    
     for (int i = 0; i < int(inputData.size()); i++)
     {
         if (inputData[i] > maxThreshold)
@@ -60,9 +55,5 @@ void StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
         }
     }
 
-    /*if(alert_flag == 1)
-    {
-       alerters_input[0]->set_alert();
-       alerters_input[1]->set_alert();
-    }*/
+   
 }

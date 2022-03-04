@@ -1,26 +1,36 @@
 #include <vector>
+#include <string>
 
-class Stats
-{
-public:
-    float average, max, min;
+using namespace std;
+
+class Stats{
+
+    public:
+    double average;
+    double max;
+    double min;
+    bool emailSent;
+    bool ledGlows;
+    
 };
+
 namespace Statistics 
 {
-    Stats ComputeStatistics(const std::vector<float>& inputData);
-}
-
+Stats ComputeStatistics(const std::vector<double>& data);
+};
+   
 class StatsAlerter
 {
-
+    Stats checkAndAlert(const std::vector<double>& data);
 };
 
 struct EmailAlert
-{
-    bool emailSent;
-};
+        {
+             bool emailSent;
+        };
 
 struct LEDAlert
-{
-    bool ledGlows;
-};
+        {
+            bool ledGlows;
+        };
+

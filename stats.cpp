@@ -10,7 +10,7 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
     double maximum = 0;
     double average_temp = 0;
     
-    if 
+    if (data.size())
                 {
                  int count = 0;
                  double sum = 0;
@@ -35,7 +35,7 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
 
                 }
     
-    else (data.size())
+    else 
                 {
                   average_temp = 0.0/0.0;
                   maximum = 0.0/0.0;

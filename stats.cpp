@@ -54,7 +54,7 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
 }
 
 
-Stats StatsAlerter::checkAndAlert(const std::vector<double>& data)
+/* Stats StatsAlerter::checkAndAlert(const std::vector<double>& data)
 {
 
     int alert = 0;
@@ -82,4 +82,4 @@ Stats StatsAlerter::checkAndAlert(const std::vector<double>& data)
         return Stats_Temp_Obj1;
 
     }
-}
+} */

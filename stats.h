@@ -5,11 +5,8 @@ class Stats
 public:
     float average, max, min;
 
-    //constructor
-    //Stats(const std::vector<double>& inputdata);
 };
 
-    //}ComputeStatIstics_Temp;
     
 namespace Statistics 
 {
@@ -49,7 +46,7 @@ class StatsAlerter : public EmailAlert, public LEDAlert
     std::vector<IAlerter*> alerters_input;
     void checkAndAlert(const std::vector<float>& );
 
-    //parametrised constructor
+ 
     StatsAlerter(const float maxThreshold_temp, std::vector<IAlerter*> &alerters)
     {
         maxThreshold = maxThreshold_temp;
@@ -59,6 +56,4 @@ class StatsAlerter : public EmailAlert, public LEDAlert
 };
 
 
-
-//alerters is vector of struct
 

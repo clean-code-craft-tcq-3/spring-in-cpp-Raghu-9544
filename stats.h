@@ -9,8 +9,8 @@ class Stats{
     double average;
     double max;
     double min;
-    bool emailSent;
-    bool ledGlows;
+    // bool emailSent;
+    // bool ledGlows;
     
 };
 

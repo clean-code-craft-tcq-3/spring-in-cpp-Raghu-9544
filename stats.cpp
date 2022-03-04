@@ -1,66 +1,85 @@
 #include "stats.h"
-//using namespace Statistics;
+#include <iostream>
 
-Stats Statistics::ComputeStatistics(const std::vector<float>& InputData) 
+
+Stats Statistics::ComputeStatistics(const std::vector<double>& data)
 {
-    float i, sum = 0, average,min,max;
-    if(InputData.size())
-    {
-        for (i = 0; i < float(InputData.size()); i++)
-        {
-            sum += InputData[i];
-        }
-        average = sum / float(InputData.size());
-        //std::cout<<average;
+    //Implement statistics here
 
-        //average = (std::accumulate(InputData.begin(),InputData.end(),0))/int(sizeof(InputData));
-        //std::cout<<average;
+    double minmum = 0;
+    double maximum = 0;
+    double average_temp = 0;
+    
+    if(data.size() <= 0 )
+                {
+                  average_temp = 0.0/0.0;
+                  maximum = 0.0/0.0;
+                  minmum = 0.0/0.0;          
 
-        max = InputData[0];
-        min = InputData[0];
-        for (int i = 0; i < int(InputData.size()); i++)
-        {
-            if (max < InputData[i])
-            {
-                max = InputData[i];
-            }
-            if (min > InputData[i])
-            {
-                min = InputData[i];
-            }
-        }
-    }
-    else
-    {
-        average = 0.0/0.0;
-        max = 0.0/0.0;
-        min = 0.0/0.0;
-    }
-    Stats ComputeStatIstics_Temp; 
-    ComputeStatIstics_Temp.average = average;
-    ComputeStatIstics_Temp.max = max;
-    ComputeStatIstics_Temp.min = min;
+                }
+    
+    else 
+                {
+                 int count = 0;
+                 double sum = 0;
+                 int i;
+    
+                for (i=0; i < data.size(); i++)
+                {
+                    count++;
+                    sum += data[i];
 
-    return ComputeStatIstics_Temp;
+                    if ( data[i] > maximum)
+                        {
+                            maximum = data[i];
+                        }
+
+                    else if (data[i] < minmum)
+                        {
+                            minmum = data[i];
+                        }
+                }
+                average_temp = sum/(double)count;   
+
+                }
+    
+              
+        Stats Stats_Temp_Obj;
+        Stats_Temp_Obj.average = average_temp;
+        Stats_Temp_Obj.max = maximum;
+        Stats_Temp_Obj.min = minmum;
+
+        return Stats_Temp_Obj;
+        
 }
 
-StatsAlerter::checkAndAlert(const std::vector<float>& inputData)
+
+Stats StatsAlerter::checkAndAlert(const std::vector<double>& data)
 {
-    //EmailAlert emailAlert;
-    //LEDAlert ledAlert;
-    alert_flag = 0;
-    for (int i = 0; i < int(float(InputData.size)); i++)
+
+    int alert = 0;
+    float maxThreshold;
+    for (int i = 0; i < data.size(); i++)
     {
-        if (InputData[i] > maxThreshold)
+        if (data[i] > maxThreshold)
         {
-            alert_flag = 1;
+            alert = 1;
             break;
         }
     }
 
-    if(alert_flag == 1)
+    if(alert == 1)
     {
-       alerters_input[0].set_alert();
-       alerters_input[1].set_alert();
+       // alerters_input[0].set_alert();
+       // alerters_input[1].set_alert();
+        EmailAlert x;
+        LEDAlert y;
+
+         Stats Stats_Temp_Obj1;
+        Stats_Temp_Obj1.emailSent = x.emailSent;
+        Stats_Temp_Obj1.ledGlows = y.ledGlows;
+
+        return Stats_Temp_Obj1;
+
     }
 }

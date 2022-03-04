@@ -25,7 +25,7 @@ TEST_CASE("reports average, minimum and maximum") {
     REQUIRE(Catch::isnan(computedStats.min));
 }
 
-/*TEST_CASE("raises alerts when max is greater than threshold") {
+TEST_CASE("raises alerts when max is greater than threshold") {
     EmailAlert emailAlert;
     LEDAlert ledAlert;
     std::vector<IAlerter*> alerters = {&emailAlert, &ledAlert};
@@ -36,4 +36,4 @@ TEST_CASE("reports average, minimum and maximum") {
 
     REQUIRE(emailAlert.emailSent);
     REQUIRE(ledAlert.ledGlows);
-} */
+} 

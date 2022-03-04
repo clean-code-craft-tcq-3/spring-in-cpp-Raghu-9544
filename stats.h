@@ -18,9 +18,9 @@ class StatsAlerter
 struct EmailAlert
 {
     bool emailSent;
-}
+};
 
 struct LEDAlert
 {
     bool ledGlows;
-}
+};

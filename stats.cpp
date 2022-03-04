@@ -6,7 +6,7 @@ Stats Statistics::ComputeStatistics(const std::vector<double>& data)
 {
     //Implement statistics here
 
-    double minmum = 0;
+    double minmum = data[1];
     double maximum = 0;
     double average_temp = 0;
     

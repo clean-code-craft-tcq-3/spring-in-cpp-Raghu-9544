@@ -19,7 +19,7 @@ namespace Statistics
 Stats ComputeStatistics(const std::vector<double>& data);
 };
    
-class StatsAlerter
+/* class StatsAlerter
 {
     Stats checkAndAlert(const std::vector<double>& data);
 };
@@ -32,5 +32,5 @@ struct EmailAlert
 struct LEDAlert
         {
             bool ledGlows;
-        };
+        }; */
 
